@@ -20,10 +20,10 @@ const calculateExercises = (hours: number[], target: number): Result => {
 
     if(average - 1 > target) {
         rating = 3;
-        ratingDescription = "Very good"
+        ratingDescription = "Very good";
     } else if(average + 1 < target) {
         rating = 1;
-        ratingDescription = "Not good"
+        ratingDescription = "Not good";
     }
 
     return(
@@ -36,8 +36,8 @@ const calculateExercises = (hours: number[], target: number): Result => {
             target,
             average
         }
-    )
-}
+    );
+};
 
 
 const parseExerciseArguments = (args: string[]) => {
@@ -48,7 +48,7 @@ const parseExerciseArguments = (args: string[]) => {
     }
 
     const hours: number[] = [];
-    const target: number = Number(args[argsLength - 1]);
+    const target = Number(args[argsLength - 1]);
 
     for(let i = 2; i < argsLength - 1; i++) {
         if(isNaN(Number(args[i]))) {
@@ -59,15 +59,15 @@ const parseExerciseArguments = (args: string[]) => {
     return {
         hours,
         target
-    }
-}
+    };
+};
 
 try {
     const { hours, target} = parseExerciseArguments(process.argv);
     console.log(calculateExercises(hours, target));
 
 } catch(error: unknown) {
-    let errorMessage = 'Something bad happened.'
+    let errorMessage = 'Something bad happened.';
     if (error instanceof Error) {
       errorMessage += ' Error: ' + error.message;
     }

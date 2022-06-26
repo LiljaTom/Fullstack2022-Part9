@@ -4,7 +4,7 @@ interface BmiParameters {
     weight: number;
 }
 
-const calculateBmi = (height: number, weight: number): string => {
+export const calculateBmi = (height: number, weight: number): string => {
     let result;
     const bmi = weight / Math.pow((height * 0.01), 2);
 
